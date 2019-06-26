@@ -29,19 +29,19 @@ namespace BinarySearching
                 Console.WriteLine(bsearch(new[] { -1, -1, 0, 1, 1, 3, 3, 3, 4, 5, 6, 7, 7, 7, 7, 8, 8 }, 7, 0, 17));
                 Console.WriteLine(bsearch(null, 7, 0, 17));
             }
-            catch (Exception e)
+            catch (ArgumentNullException)
             {
                 Console.WriteLine("System.ArgumentNullException: Значение не может быть неопределенным.");
             }
             Console.ReadKey();
         }
 
-        private static int? bsearch(int[] array, int x, int left, int right)
+        private static int bsearch(int[] array, int x, int left, int right)
         {
             if (array == null)
                 throw new ArgumentNullException();
             if (x >= array[array.Length - 1])
-                return null;
+                return -1;
             if (x < array[0])
                 return 0;
             int middleResult = 0;
